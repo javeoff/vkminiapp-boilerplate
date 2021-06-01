@@ -16,7 +16,7 @@ export const bridgeFetch = (methodName: string, params: Record<string, any>) =>
     method: methodName,
     request_id: getApiRequestId(),
     params: {
-      access_token: window.accessToken,
+      // access_token: window.accessToken,
       v: '5.130',
       ...params,
     },

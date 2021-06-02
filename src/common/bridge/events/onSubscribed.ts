@@ -1,4 +1,5 @@
-import { bridgeFetch } from '@bridge/utils/bridgeFetch';
+import { bridgeFetch, TCallApiMethodData } from '@bridge/utils/bridgeFetch';
 
-const onSubscribed = (): Promise<any> =>
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const onSubscribed = (): Promise<TCallApiMethodData<boolean>> =>
   bridgeFetch('groups.isMember', { group_id: process.env.GROUP_ID });

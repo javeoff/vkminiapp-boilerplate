@@ -1,25 +1,34 @@
+const path = require('path');
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const dotenv = require('dotenv').config({
+  path: path.resolve(process.cwd(), '.env.local'),
+  defaults: path.resolve(process.cwd(), '.env'),
+});
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
-const path = require('path');
 const webpack = require('webpack');
 
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
 module.exports = {
+  stats: { errorDetails: true },
   context: __dirname,
-  mode: 'development',
-  watch: true,
+  mode: process.env.NODE_ENV,
   entry: './src/index.tsx',
   output: {
     filename: 'bundle.js',
     path: path.resolve(process.cwd(), './dist'),
   },
   plugins: [
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+    }),
     new HtmlWebpackPlugin({
-      template: './src/index.html',
+      template: './src/public/index.ejs',
+      inject: 'body',
     }),
     new ForkTsCheckerWebpackPlugin({
       eslint: {
@@ -56,5 +65,6 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     hot: true,
+    port: process.env.PORT,
   },
 };

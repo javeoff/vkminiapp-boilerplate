@@ -1,3 +1,9 @@
 import { FC } from 'react';
 
-export const App: FC = () => <h1>Hel2lo 222w2orld 1</h1>;
+import { IndexPage } from '@pages/Index/IndexPage';
+
+export const App: FC = () => (
+  <div>
+    <IndexPage />
+  </div>
+);

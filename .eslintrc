@@ -193,13 +193,6 @@
             "readonly": "array-simple"
           }
         ],
-        "@typescript-eslint/explicit-function-return-type": [
-          "error",
-          {
-            "allowDirectConstAssertionInArrowFunctions": true,
-            "allowExpressions": true
-          }
-        ],
         "@typescript-eslint/explicit-member-accessibility": [
           "error"
         ],
@@ -247,6 +240,7 @@
             "ignoreVoid": true
           }
         ],
+        "@typescript-eslint/explicit-function-return-type":"off",
         "@typescript-eslint/no-unsafe-assignment": "off",
         "@typescript-eslint/no-unused-vars": "error",
         "@typescript-eslint/no-use-before-define": "off",

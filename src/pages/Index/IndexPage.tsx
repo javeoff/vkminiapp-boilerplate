@@ -5,6 +5,18 @@ import {
   withIndexState,
 } from '@pages/Index/hocs/withIndexState';
 
-const IndexComponent: FC<IWithIndexState> = ({ title }) => <div>{title}</div>;
+interface IProps {
+  id: string;
+}
+
+const IndexComponent: FC<IWithIndexState & IProps> = ({
+  title,
+  setActivePanel,
+}) => (
+  <div>
+    <div>{title}</div>
+    <button onClick={() => setActivePanel('about')}>/About</button>
+  </div>
+);
 
 export const IndexPage = withIndexState(IndexComponent);

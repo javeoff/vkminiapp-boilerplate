@@ -7,8 +7,10 @@ import {
 
 import { Feature } from '@common/enums/Feature';
 import { indexSlice } from '@pages/Index/duck/slice';
+import { appSlice } from '@pages/App/duck/slice';
 
 const reducer = {
+  [Feature.APP]: appSlice.reducer,
   [Feature.INDEX]: indexSlice.reducer,
 };
 

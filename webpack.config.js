@@ -16,6 +16,7 @@ const isDevelopment = process.env.NODE_ENV !== 'production';
 module.exports = {
   stats: { errorDetails: true },
   context: __dirname,
+  watch: true,
   mode: process.env.NODE_ENV,
   entry: './src/index.tsx',
   output: {

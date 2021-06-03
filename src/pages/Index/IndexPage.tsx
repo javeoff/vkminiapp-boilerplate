@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { Button, Panel, PanelHeader } from '@vkontakte/vkui';
 
 import {
   IWithIndexState,
@@ -10,15 +11,14 @@ interface IProps {
 }
 
 const IndexComponent: FC<IWithIndexState & IProps> = ({
+  id,
   title,
   setActivePanel,
 }) => (
-  <div>
-    <div>{title}</div>
-    <button type='button' onClick={() => setActivePanel('about')}>
-      /About
-    </button>
-  </div>
+  <Panel id={id}>
+    <PanelHeader>{title}</PanelHeader>
+    <Button onClick={() => setActivePanel('about')}>/About</Button>
+  </Panel>
 );
 
 export const IndexPage = withIndexState(IndexComponent);

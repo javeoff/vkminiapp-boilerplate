@@ -1,8 +1,8 @@
 import { connect, ConnectedProps } from 'react-redux';
 
 import { IRootState } from '@common/redux/store';
-import { activePanelSelector } from '@pages/App/duck/selectors';
-import { appSlice } from '@pages/App/duck/slice';
+import { activePanelSelector } from '@main/features/App/duck/selectors';
+import { appSlice } from '@main/features/App/duck/slice';
 
 const mapStateToProps = (state: IRootState) => ({
   activePanel: activePanelSelector(state),

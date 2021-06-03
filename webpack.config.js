@@ -59,7 +59,7 @@ module.exports = {
   devtool: 'source-map',
   module: {
     rules: [
-      { test: /\.scss$/, use: ['style-loader', 'css-loader'] },
+      { test: /\.css$/, use: ['style-loader', 'css-loader'] },
       { test: /\.tsx?$/, loader: 'babel-loader' },
       { enforce: 'pre', test: /\.js$/, loader: 'source-map-loader' },
     ],

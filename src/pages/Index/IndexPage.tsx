@@ -15,7 +15,9 @@ const IndexComponent: FC<IWithIndexState & IProps> = ({
 }) => (
   <div>
     <div>{title}</div>
-    <button onClick={() => setActivePanel('about')}>/About</button>
+    <button type='button' onClick={() => setActivePanel('about')}>
+      /About
+    </button>
   </div>
 );
 

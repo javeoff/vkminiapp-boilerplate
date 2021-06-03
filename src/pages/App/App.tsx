@@ -11,7 +11,9 @@ const AppComponent: FC<IWithAppState> = ({ activePanel, setActivePanel }) => (
     </View>
 
     <br />
-    <button onClick={() => setActivePanel('index')}>/Index</button>
+    <button type='button' onClick={() => setActivePanel('index')}>
+      /Index
+    </button>
   </div>
 );
 

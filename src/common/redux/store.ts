@@ -1,6 +1,5 @@
 import {
   configureStore,
-  EnhancedStore,
   getDefaultMiddleware,
   StateFromReducersMapObject,
 } from '@reduxjs/toolkit';

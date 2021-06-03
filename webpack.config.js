@@ -1,6 +1,7 @@
+// eslint-disable-next-line import/order
 const path = require('path');
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const dotenv = require('dotenv').config({
+
+require('dotenv').config({
   path: path.resolve(process.cwd(), '.env.local'),
   defaults: path.resolve(process.cwd(), '.env'),
 });
@@ -24,9 +25,6 @@ module.exports = {
     path: path.resolve(process.cwd(), './dist'),
   },
   plugins: [
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
-    }),
     new HtmlWebpackPlugin({
       template: './src/public/index.ejs',
       inject: 'body',
@@ -37,6 +35,9 @@ module.exports = {
       },
       typescript: {
         mode: 'write-references',
+      },
+      logger: {
+        devServer: false,
       },
     }),
     isDevelopment && new webpack.HotModuleReplacementPlugin(),

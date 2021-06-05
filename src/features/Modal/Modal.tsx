@@ -6,14 +6,16 @@ import {
   IWithModalState,
   withModalState,
 } from '@main/features/Modal/hocs/withModalState';
+import { Modals } from '@main/features/Modal/enums/Modals';
+import { TModal } from '@main/features/Modal/types/TModal';
 
 interface IProps {
-  activeModal: string | null;
+  activeModal: TModal;
 }
 
 const ModalComponent: FC<IProps & IWithModalState> = ({ activeModal }) => (
   <ModalRoot activeModal={activeModal}>
-    <ErrorModal id='error' />
+    <ErrorModal id={Modals.ERROR} />
   </ModalRoot>
 );
 

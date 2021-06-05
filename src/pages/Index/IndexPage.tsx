@@ -5,6 +5,7 @@ import {
   IWithIndexState,
   withIndexState,
 } from '@pages/Index/hocs/withIndexState';
+import { Pages } from '@main/features/App/enums/Pages';
 
 interface IProps {
   id: string;
@@ -17,7 +18,7 @@ const IndexComponent: FC<IWithIndexState & IProps> = ({
 }) => (
   <Panel id={id}>
     <PanelHeader>{title}</PanelHeader>
-    <Button onClick={() => setActivePanel('about')}>/About</Button>
+    <Button onClick={() => setActivePanel(Pages.ABOUT)}>/About</Button>
   </Panel>
 );
 

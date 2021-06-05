@@ -1,9 +1,10 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { IBaseFeatureState } from '@common/redux/types/IBaseFeatureState';
+import { TModal } from '@main/features/Modal/types/TModal';
 
 interface IApp {
-  activeModal: string | null;
+  activeModal: TModal;
 }
 
 export type IState = IBaseFeatureState<IApp>;
@@ -16,7 +17,10 @@ export const modalSlice = createSlice({
     },
   } as IState,
   reducers: {
-    setActiveModal: (draft, action: PayloadAction<string | null>) => {
+    setActiveModal: (draft, action: PayloadAction<TModal>) => {
+      draft.state.activeModal = action.payload;
+    },
+    changeActiveModal: (draft, action: PayloadAction<TModal>) => {
       draft.state.activeModal = action.payload;
     },
   },

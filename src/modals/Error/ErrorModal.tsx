@@ -5,6 +5,7 @@ import {
   IWithErrorModalState,
   withErrorModalState,
 } from '@main/modals/Error/hocs/withErrorModalState';
+import { Pages } from '@main/features/App/enums/Pages';
 
 interface IProps {
   id: string;
@@ -15,14 +16,14 @@ const ErrorModalComponent: FC<IProps & IWithErrorModalState> = ({
   setActiveModal,
   setActivePanel,
 }) => {
-  const onClose = () => {
+  const onClose = (): void => {
     setActiveModal(null);
   };
 
   return (
     <ModalCard id={id} onClose={onClose}>
       <div>123</div>
-      <Button onClick={() => setActivePanel('index')}>
+      <Button onClick={() => setActivePanel(Pages.INDEX)}>
         Открыть главную страницу
       </Button>
       <Button onClick={onClose}>Close</Button>

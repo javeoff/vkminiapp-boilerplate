@@ -5,6 +5,8 @@ import {
   IWithAboutState,
   withAboutState,
 } from '@pages/About/hocs/withAboutState';
+import { Modals } from '@main/features/Modal/enums/Modals';
+import { Pages } from '@main/features/App/enums/Pages';
 
 interface IProps {
   id: string;
@@ -17,9 +19,9 @@ const AboutPageComponent: FC<IProps & IWithAboutState> = ({
 }) => (
   <Panel id={id}>
     <PanelHeader>About page</PanelHeader>
-    <Button onClick={() => setActivePanel('index')}>/index</Button>
+    <Button onClick={() => setActivePanel(Pages.INDEX)}>/index</Button>
     <br />
-    <Button onClick={() => setActiveModal('error')}>Вызвать ошибку</Button>
+    <Button onClick={() => setActiveModal(Modals.ERROR)}>Вызвать ошибку</Button>
   </Panel>
 );
 

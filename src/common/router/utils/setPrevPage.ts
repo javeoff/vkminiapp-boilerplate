@@ -3,11 +3,9 @@ import { appSlice } from '@main/features/App/duck/slice';
 import { TModal } from '@main/features/Modal/types/TModal';
 import { modalSlice } from '@main/features/Modal/duck/slice';
 import { store } from '@common/redux/store';
-import { THistoryList } from '@common/router/types/THistoryList';
+import { THistory } from '@common/router/types/THistory';
 
-export const goBack = (history: THistoryList): void => {
-  const prevPage = history[history.length - 1];
-
+export const setPrevPage = (prevHistory: THistory): void => {
   const reducers = {
     changeActivePanel: (panel: Pages) =>
       appSlice.actions.changeActivePanel(panel),
@@ -15,12 +13,12 @@ export const goBack = (history: THistoryList): void => {
       modalSlice.actions.changeActiveModal(activeModal),
   };
 
-  switch (prevPage.type) {
+  switch (prevHistory.type) {
     case 'panel':
-      store.dispatch(reducers.changeActivePanel(prevPage.name as Pages));
+      store.dispatch(reducers.changeActivePanel(prevHistory.name as Pages));
       break;
     case 'modal':
-      store.dispatch(reducers.changeActiveModal(prevPage.name as TModal));
+      store.dispatch(reducers.changeActiveModal(prevHistory.name as TModal));
       break;
     default:
   }

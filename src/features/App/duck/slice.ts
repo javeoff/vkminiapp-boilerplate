@@ -10,8 +10,6 @@ interface IApp {
 
 export type IState = IBaseFeatureState<IApp>;
 
-const router = new Router();
-
 export const appSlice = createSlice({
   name: 'app',
   initialState: {
@@ -22,7 +20,8 @@ export const appSlice = createSlice({
   reducers: {
     setActivePanel: (draft, action: PayloadAction<Pages>) => {
       draft.state.activePanel = action.payload;
-      router.pushHistory('panel', action.payload);
+
+      new Router().pushHistory('panel', action.payload);
     },
     changeActivePanel: (draft, action: PayloadAction<Pages>) => {
       draft.state.activePanel = action.payload;
